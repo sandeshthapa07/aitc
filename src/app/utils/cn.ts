@@ -1,4 +1,4 @@
-import { ClassValue, clsx } from 'clsx';
+import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 // this is a helper function for tailwind classes for conditional and dynamic classes

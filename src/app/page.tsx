@@ -1,7 +1,10 @@
+import DynamicImagePlaceholder from '../../components/common/DynamicImagePlaceholder';
+
 export default function Home() {
   return (
-    <div className='sandesh flex h-screen w-screen items-center justify-center bg-red-300 p-3  text-white'>
-      <h3 className=' text-[3rem] font-black'>sandesh</h3>
+    <div className='flex size-96 flex-col items-center justify-center gap-10  p-3 text-primary'>
+      <h3>k cha</h3>
+      <DynamicImagePlaceholder />
     </div>
   );
 }

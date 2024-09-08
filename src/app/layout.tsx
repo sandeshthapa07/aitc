@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
+
 import './globals.css';
+
+import Footer from '../../components/common/layout/Footer';
+import Header from '../../components/common/layout/Header';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -18,8 +22,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${lato.className} antialiased`}>{children}</body>
+    <html lang='en' className={`${lato.className} antialiased`}>
+      <body>
+        <div className='flex min-h-screen flex-col justify-between bg-white p-8 pt-0 text-gray-900 md:pt-8'>
+          <Header />
+          <main className='mx-auto w-full max-w-[60ch] space-y-6'>
+            {children}
+          </main>
+
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
