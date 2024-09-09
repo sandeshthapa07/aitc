@@ -1,10 +1,20 @@
-import DynamicImagePlaceholder from '../../components/common/DynamicImagePlaceholder';
+import CommonButton from '../../components/common/CommonButton';
+import CommonParargraph from '../../components/common/CommonParargraph';
+import CommonTitle from '../../components/common/CommonTitle';
 
 export default function Home() {
   return (
-    <div className='flex size-96 flex-col items-center justify-center gap-10  p-3 text-primary'>
-      <h3>k cha</h3>
-      <DynamicImagePlaceholder />
-    </div>
+    <main className='homepage'>
+      <CommonTitle title='Welcome to AITC!' className='text-center' />
+      <CommonParargraph
+        text='We are a company that specializes in providing the best services for your business.'
+        className='text-center'
+      />
+      <CommonButton
+        href='/'
+        className=' font-medium tracking-[0.02rem]'
+        variant='primary'
+      />
+    </main>
   );
 }
