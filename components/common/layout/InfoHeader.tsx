@@ -4,7 +4,7 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 
 const InfoHeader = () => {
   return (
-    <nav className='info-header flex flex-col gap-4 bg-lightShade1 px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]'>
+    <nav className='info-header flex flex-col gap-4  px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]'>
       <ul className='email-phone flex flex-row items-center justify-between xmd:gap-8 '>
         <li>
           <a
