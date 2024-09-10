@@ -9,7 +9,7 @@ import DesktopServices from './services/DesktopServices';
 const MainHeader = () => {
   const [showServices, setShowServices] = useState<boolean>(false);
   return (
-    <nav className='header relative flex w-full flex-row items-center justify-between border-y-2 border-lightShade1  px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]  '>
+    <nav className='header relative flex w-full flex-row items-center  justify-between border-y-2 border-lightShade1  px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]  '>
       <Link href='/'>
         <svg
           width='48'
