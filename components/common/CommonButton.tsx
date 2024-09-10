@@ -6,7 +6,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
 
 const buttonStyles = cva(
-  ' rounded px-4 py-[0.78125rem] text-lg leading-[1.6875rem]  ', // Common styles
+  ' w-fit whitespace-nowrap rounded px-4 py-[0.78125rem] text-lg leading-[1.6875rem] ', // Common styles
   {
     variants: {
       variant: {

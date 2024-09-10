@@ -9,7 +9,7 @@ const CommonTitle = ({ className, title }: CommonTitleProps) => {
   return (
     <h2
       className={cn(
-        'text-[2rem] font-black text-mainBlack xmd:text-[2.5rem] lg:text-5xl ',
+        'text-2xl font-black text-mainBlack xmd:text-[2.5rem] lg:text-5xl ',
         className
       )}
     >
@@ -19,3 +19,13 @@ const CommonTitle = ({ className, title }: CommonTitleProps) => {
 };
 
 export default CommonTitle;
+
+export const CommonHeader = ({ className, title }: CommonTitleProps) => {
+  return (
+    <h3
+      className={cn('text-lg font-bold uppercase  text-mainBlack  ', className)}
+    >
+      {title}
+    </h3>
+  );
+};
