@@ -44,6 +44,9 @@ export default function RootLayout({
             <TermsAndConditions />
           </div>
         </div>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
