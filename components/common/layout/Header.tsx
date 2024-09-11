@@ -3,7 +3,7 @@ import MainHeader from './MainHeader';
 
 const Header = () => {
   return (
-    <header className='header main-padding h-24 w-full '>
+    <header className='header'>
       <InfoHeader />
       <MainHeader />
     </header>
