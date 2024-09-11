@@ -34,14 +34,9 @@ export default function RootLayout({
       className={`${lato.className}  ${lato500.className} antialiased`}
     >
       <body>
-        <div className='flex min-h-screen flex-col justify-between bg-white  text-gray-900 '>
-          <Header />
-          <main className='mx-auto w-full max-w-[60ch] space-y-6'>
-            {children}
-          </main>
-
-          <Footer />
-        </div>
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
