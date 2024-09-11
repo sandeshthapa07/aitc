@@ -4,7 +4,9 @@ import localFont from 'next/font/local';
 
 import './globals.css';
 
-import Footer from '../../components/common/layout/Footer';
+import Footer, {
+  TermsAndConditions,
+} from '../../components/common/layout/Footer';
 import Header from '../../components/common/layout/Header';
 
 const lato = Lato({
@@ -36,11 +38,11 @@ export default function RootLayout({
       <body>
         <div className='flex min-h-screen flex-col justify-between bg-white  text-gray-900 '>
           <Header />
-          <main className='mx-auto w-full max-w-[60ch] space-y-6'>
-            {children}
-          </main>
-
-          <Footer />
+          <main className=''>{children}</main>
+          <div className=' flex flex-col gap-10 px-6  pb-[3.125rem] pt-20 xmd:gap-[3.125rem] xmd:px-16 xl:pt-[6.25rem] 3xl:px-[9.375rem]'>
+            <Footer />
+            <TermsAndConditions />
+          </div>
         </div>
       </body>
     </html>
