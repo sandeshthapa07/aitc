@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${lato.className} ${lato500.variable} antialiased`}
+      className={`${lato.className}  ${lato500.className} antialiased`}
     >
       <body>
         <Header />

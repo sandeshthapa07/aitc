@@ -1,3 +1,5 @@
+import { FaFacebook, FaInstagramSquare, FaLinkedin } from 'react-icons/fa';
+
 import { cn } from '../../utils/cn';
 
 interface CommonParargraphProps
@@ -14,3 +16,22 @@ const CommonParargraph = ({ text, className }: CommonParargraphProps) => {
 };
 
 export default CommonParargraph;
+
+export const SocialMedia = () => {
+  return (
+    <div className='flex flex-row items-center gap-6'>
+      <a href='https://www.facebook.com/aitcinternational' target='_blank'>
+        <FaFacebook size={24} />
+      </a>
+      <a href='https://www.instagram.com/aitcinternational/' target='_blank'>
+        <FaInstagramSquare size={24} />
+      </a>
+      <a
+        href='https://www.linkedin.com/company/aitc-international-private-limited'
+        target='_blank'
+      >
+        <FaLinkedin size={24} />
+      </a>
+    </div>
+  );
+};

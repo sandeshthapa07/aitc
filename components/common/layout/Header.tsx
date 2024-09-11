@@ -3,7 +3,7 @@ import MainHeader from './MainHeader';
 
 const Header = () => {
   return (
-    <header className='header'>
+    <header className='header  '>
       <InfoHeader />
       <MainHeader />
     </header>

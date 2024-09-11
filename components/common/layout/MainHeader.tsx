@@ -1,8 +1,15 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 
+import MobileLayout from './MobileLayout';
+import DesktopServices from './services/DesktopServices';
+
 const MainHeader = () => {
+  const [showServices, setShowServices] = useState<boolean>(false);
   return (
-    <nav className='header flex flex-row items-center justify-between border-y-2 border-lightShade1 px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]  '>
+    <nav className='header relative flex w-full flex-row items-center  justify-between border-y-2 border-lightShade1  px-6 py-4 xmd:flex-row xmd:justify-between  xmd:px-16 3xl:px-[9.375rem]  '>
       <Link href='/'>
         <svg
           width='48'
@@ -52,9 +59,12 @@ const MainHeader = () => {
       </Link>
       <ul className='hidden flex-row items-center gap-16 lg:flex'>
         <li>
-          <Link className='text-lg text-mainBlack' href='/services'>
+          <button
+            className='text-lg text-mainBlack'
+            onClick={() => setShowServices(!showServices)}
+          >
             Services
-          </Link>
+          </button>
         </li>
         <li>
           <Link className='text-lg text-mainBlack' href='/ourwork'>
@@ -80,6 +90,8 @@ const MainHeader = () => {
           </Link>
         </li>
       </ul>
+      <MobileLayout />
+      {showServices && <DesktopServices />}
     </nav>
   );
 };
