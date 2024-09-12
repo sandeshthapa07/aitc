@@ -9,7 +9,7 @@ interface CommonParargraphProps
 }
 const CommonParargraph = ({ text, className }: CommonParargraphProps) => {
   return (
-    <p className={cn('font-medium text-mainBlack  xmd:text-lg', className)}>
+    <p className={cn('font-medium text-mainBlack  xmd:text-lg  ', className)}>
       {text}
     </p>
   );

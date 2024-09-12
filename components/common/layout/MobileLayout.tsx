@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { MdClose } from 'react-icons/md';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 import useOutsideClick from '../../../hooks/useOutSideClick';
+import MobileServices from './services/MobileServices';
 
 const MobileLayout = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -25,7 +27,11 @@ const MobileLayout = () => {
       onClick={() => setOpenMenu(!openMenu)}
       className=' lg:hidden'
     >
-      <RxHamburgerMenu size={32} fill='#5F6368' />
+      {openMenu ? (
+        <MdClose size={32} fill='#5F6368' />
+      ) : (
+        <RxHamburgerMenu size={32} fill='#5F6368' />
+      )}{' '}
       {openMenu && <MobileMenu />}
     </button>
   );
@@ -35,37 +41,38 @@ export default MobileLayout;
 
 const MobileMenu = () => {
   return (
-    <div className='  absolute left-0 top-full z-[9999999999]  h-screen w-full   border bg-white '>
-      <ul className='flex size-full   flex-col items-start gap-8 overflow-y-auto p-6 '>
-        <li>
-          <Link className='text-lg text-mainBlack' href='/services'>
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link className='text-lg text-mainBlack' href='/ourwork'>
-            Our Work
-          </Link>
-        </li>
-        <li>
-          <Link className='text-lg text-mainBlack' href='/Career'>
-            Career
-          </Link>
-        </li>
-        <li>
-          <Link className='text-lg text-mainBlack' href='/insights'>
-            Insights
-          </Link>
-        </li>
-        <li>
-          <Link
-            href='/contact us'
-            className='font=medium rounded bg-primary px-4 py-2.5 text-lg text-white '
-          >
-            Contact us
-          </Link>
-        </li>
-      </ul>
-    </div>
+    <button
+      onClick={(e) => e.stopPropagation()}
+      className='absolute left-0 top-full z-[9999999999] flex w-full flex-col items-center justify-start border bg-white'
+    >
+      <div className='size-full'>
+        {/* the height of 190px is the height of header */}
+        <ul className='flex h-[calc(100vh-190px)]  flex-col items-start gap-8 overflow-y-auto  p-6 '>
+          <div className='h-auto w-full  text-lg text-mainBlack'>
+            <MobileServices />
+          </div>
+          <li>
+            <Link className='text-lg text-mainBlack' href='/ourwork'>
+              Our Work
+            </Link>
+          </li>
+          <li>
+            <Link className='text-lg text-mainBlack' href='/Career'>
+              Career
+            </Link>
+          </li>
+          <li>
+            <Link className='text-lg text-mainBlack' href='/insights'>
+              Insights
+            </Link>
+          </li>
+          <li>
+            <Link className='text-lg text-mainBlack' href='/Classroom'>
+              ClassRoom
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </button>
   );
 };

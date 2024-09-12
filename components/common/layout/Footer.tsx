@@ -1,4 +1,3 @@
-import { url } from 'inspector';
 import Link from 'next/link';
 
 import CommonParargraph, { SocialMedia } from '../CommonParargraph';
@@ -30,7 +29,7 @@ const companyMenu = [
 
 const Footer = () => {
   return (
-    <footer className='footer grid w-full grid-cols-1 gap-8 border-y-2 border-lightShade1 px-6 py-4 xmd:grid-cols-3 xmd:flex-row  xmd:justify-between xmd:px-16 lg:grid-cols-4 lg:gap-11  xl:gap-24 3xl:px-[9.375rem] '>
+    <footer className='footer grid w-full grid-cols-1 gap-8  py-4 xmd:grid-cols-3 xmd:flex-row  xmd:justify-between lg:grid-cols-4 lg:gap-11  xl:gap-24  '>
       <LogoDetails />
 
       <Services />
@@ -108,8 +107,8 @@ const Company = () => {
       <CommonHeader title='COMPANY' />
       <div className='companymenu  flex flex-col gap-4'>
         {companyMenu.map((menu) => (
-          <Link href={menu.url} key={menu.id}>
-            <CommonParargraph text={menu.title} />
+          <Link href={menu.url} key={menu.id} className=''>
+            <CommonParargraph text={menu.title} className='hover:text-black' />
           </Link>
         ))}
       </div>
@@ -145,6 +144,20 @@ const ContactUs = () => {
           <CommonParargraph text='2201 Spinks Rd, Flower Mound,Texas, 75022' />
         </div>
       </div>
+    </div>
+  );
+};
+
+export const TermsAndConditions = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+  return (
+    <div className='flex flex-col items-center justify-center gap-10 border-t-2 border-lightShade1  pt-6 xmd:flex-row'>
+      <p className='text-grey'>Terms & Conditions</p>
+      <p className='text-grey'>Privacy Policy</p>
+      <p className='text-center text-primary '>
+        &copy; Copyright : {year} AiTC INTERNATIONAL{' '}
+      </p>
     </div>
   );
 };

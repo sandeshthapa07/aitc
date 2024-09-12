@@ -1,3 +1,4 @@
+import { type Dispatch, type SetStateAction } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -31,12 +32,7 @@ const otherservices: { id: number; title: string; url: string }[] = [
   },
 ];
 
-const services: {
-  id: number;
-  title: string;
-  url: string;
-  description: string;
-}[] = [
+export const services = [
   {
     id: 1,
     title: 'Software Development',
@@ -67,9 +63,18 @@ const services: {
   },
 ];
 
-const DesktopServices = () => {
+const DesktopServices = ({
+  setShowServices,
+}: {
+  setShowServices: Dispatch<SetStateAction<boolean>>;
+}) => {
   return (
-    <div className='services absolute left-0 top-full z-[999999999999999999] flex w-full flex-row justify-between gap-8  border-2 border-lightShade1 bg-white px-16 py-6 3xl:px-[9.375rem] '>
+    <div
+      onMouseLeave={() => setShowServices(false)}
+      onMouseEnter={() => setShowServices(true)}
+      className='services absolute left-0 
+       z-[999999999999999999] flex w-full flex-row justify-between gap-8  border-2 border-lightShade1 bg-white px-16 py-6 3xl:px-[9.375rem] '
+    >
       <div className='logo flex flex-col gap-6'>
         <Image
           src='/deleteableImage/service.png'
