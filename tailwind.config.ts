@@ -36,6 +36,7 @@ const config: Config = {
         darkShade1: '#393737',
         darkShade2: '#5A5A5A',
         grey: '#949494',
+        border: '#C2C2F0',
       },
       screens: {
         xmd: '744px',
