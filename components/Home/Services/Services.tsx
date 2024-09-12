@@ -3,8 +3,10 @@ import ServicesList from './ServicesList';
 
 const Services = () => {
   return (
-    <section className='flex flex-row items-center justify-center
-     gap-[6.25rem] p-[6.25rem] '>
+    <section
+      className='flex flex-row items-center justify-center
+     gap-[6.25rem] p-[6.25rem] '
+    >
       {' '}
       <HeadingSection />
       <ServicesList />{' '}
