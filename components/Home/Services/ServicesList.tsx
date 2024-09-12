@@ -1,4 +1,11 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+
+import { cn } from '../../../utils/cn';
+import CommonButton from '../../common/CommonButton';
 
 const services = [
   {
@@ -151,30 +158,64 @@ const services = [
 ];
 
 const ServicesList = () => {
-  return (
-    <ul className='grid grid-cols-3 gap-6'>
-      {services.map((service) => (
-        <li
-          className='services-1 flex h-[194px] w-[266px] cursor-pointer flex-col items-center justify-center gap-6 rounded-2xl border border-border px-4 py-6'
-          key={service?.id}
-        >
-          <div className='h-[95px] w-[123px] rounded-2xl bg-lightShade1'></div>
-          <p className='text-lg font-medium  text-mainBlack'>{service.title}</p>
-        </li>
-      ))}
+  const [index, setIndex] = useState<number>(0);
+  const [openIndex, setOpenIndex] = useState<boolean>(false);
 
-      <li className='rounded-lg border border-border p-4 '>
-        <p>
-          Whether it’s an ideation with startups to growth-focused applications
-          for mid-sized companies, as well as large-scale enterprise process
-          optimization across various industries; our expertise scales to meet
-          your unique needs ensuring the best-suited solution for the success.
-        </p>
-        <div className='flex flex-row flex-wrap gap-4'>
-          <Link href='/'>Website Development</Link>
-        </div>
-      </li>
-    </ul>
+  const handleIndex = (index: number) => {
+    setOpenIndex(!openIndex);
+    setIndex(index);
+  };
+
+  const subCategoryRowStart = (index: number) => {
+    return Math.floor((index + 5) / 3);
+  };
+
+  return (
+    <LayoutGroup>
+      <motion.ul layout className='grid w-full grid-cols-3 content-center gap-6'>
+        {' '}
+        {services.map((service) => (
+          <motion.li
+            layout
+            onClick={() => handleIndex(service?.id)}
+            className='services-1 flex cursor-pointer flex-col items-center justify-center gap-6 rounded-2xl border border-border px-4 py-6'
+            key={service?.id}
+          >
+            <div className='h-[95px] w-[123px] rounded-2xl bg-lightShade1'></div>
+            <p className='text-lg font-medium  text-mainBlack'>{service.title}</p>
+          </motion.li>
+        ))}
+        <AnimatePresence>
+          {openIndex && (
+            <motion.li
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ gridRowStart: subCategoryRowStart(index) }}
+              className={cn(
+                'relative col-span-full hidden flex-col gap-6 rounded-lg border border-border p-4 ',
+                openIndex && 'flex'
+              )}
+            >
+              <p>
+                Whether it’s an ideation with startups to growth-focused applications for mid-sized companies, as well
+                as large-scale enterprise process optimization across various industries; our expertise scales to meet
+                your unique needs ensuring the best-suited solution for the success.
+              </p>
+              <div className='flex flex-row flex-wrap gap-4'>
+                <Link href='/' className='rounded-[6px] bg-lightShad2 p-4 font-medium text-mainBlack '>
+                  Website Development
+                </Link>
+                <Link href='/' className='rounded-[6px] bg-lightShad2 p-4 text-mainBlack '>
+                  Website Development
+                </Link>
+              </div>
+              <CommonButton text='Learn more' variant='secondary' href={'/contactus'} />
+            </motion.li>
+          )}
+        </AnimatePresence>
+      </motion.ul>
+    </LayoutGroup>
   );
 };
 

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { cva } from 'class-variance-authority';
 
@@ -20,27 +18,16 @@ const buttonStyles = cva(
   }
 );
 
-interface CommonButtonProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface CommonButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: 'primary' | 'secondary';
   text?: string;
   className?: string;
   href: string;
 }
 
-const CommonButton = ({
-  variant = 'primary',
-  href,
-  text = 'Contact us',
-  className,
-  ...props
-}: CommonButtonProps) => {
+const CommonButton = ({ variant = 'primary', href, text = 'Contact us', className, ...props }: CommonButtonProps) => {
   return (
-    <Link
-      href={href}
-      {...props}
-      className={cn(buttonStyles({ variant }), className)}
-    >
+    <Link href={href} {...props} className={cn(buttonStyles({ variant }), className)}>
       {text}
     </Link>
   );
