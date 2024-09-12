@@ -14,7 +14,7 @@ type Word = {
 
 export const FlipWords = ({
   words,
-  duration = 3000,
+  duration = 2000,
   className,
 }: {
   words: Word[];
@@ -100,8 +100,8 @@ export const FlipWords = ({
                   initial={{ opacity: 0, y: 10, filter: 'blur(8px)' }}
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   transition={{
-                    delay: letterIndex * 0.05,
-                    duration: 0.4,
+                    delay: letterIndex * 0.3,
+                    duration: 0.3,
                   }}
                   className='inline-block'
                 >

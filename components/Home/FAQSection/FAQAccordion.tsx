@@ -30,7 +30,7 @@ const Accordion = ({
         className={`flex flex-row items-start justify-between p-6 text-mainBlack`}
       >
         <p
-          className={`text-left text-xl text-mainBlack hover:text-primary ${open ? 'text-primary' : ''}`}
+          className={`text-left text-xl text-mainBlack transition-all duration-300 hover:text-primary ${open ? 'text-primary' : ''}`}
         >
           {question}
         </p>
