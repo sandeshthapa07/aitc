@@ -11,14 +11,20 @@ const config: Config = {
     './components/**/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  options: {
+    safelist: [
+      {
+        pattern: /row-start-\d+/,
+      },
+    ],
+  },
   theme: {
     extend: {
       fontFamily: {
         lato: ['var(--font-lato)'],
       },
       animation: {
-        scroll:
-          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
       },
       keyframes: {
         scroll: {
@@ -50,9 +56,7 @@ export default config;
 
 function addVariablesForColors({ addBase }: any) {
   const allColors = flattenColorPalette();
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
+  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]));
 
   addBase({
     ':root': newVars,

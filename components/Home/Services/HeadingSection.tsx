@@ -1,9 +1,5 @@
-
-
 const HeadingSection = () => {
-  return (
-    <div>HeadingSection</div>
-  )
-}
+  return <div className='w-1/2'>HeadingSection</div>;
+};
 
-export default HeadingSection
+export default HeadingSection;
