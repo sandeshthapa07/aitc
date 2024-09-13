@@ -159,11 +159,20 @@ const services = [
 
 const ServicesList = () => {
   const [index, setIndex] = useState<number>(0);
-  const [openIndex, setOpenIndex] = useState<boolean>(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleIndex = (index: number) => {
-    setOpenIndex(!openIndex);
+    setOpenIndex(openIndex === index ? null : index);
+
+    const subcategories = getSubcategoriesById(index);
+    console.log(subcategories);
+
     setIndex(index);
+  };
+
+  const getSubcategoriesById = (id: number) => {
+    const service = services.find((service) => service.id === id);
+    return service ? service.subcategories : null;
   };
 
   const subCategoryRowStart = (index: number) => {
@@ -191,7 +200,7 @@ const ServicesList = () => {
             <p className='text-center text-lg font-medium  text-mainBlack'>{service.title}</p>
           </motion.li>
         ))}
-        <SubCategoryRowStart index={index} openIndex={openIndex} />
+        <SubCategoryRowStart index={index} openIndex={openIndex === index} />
       </motion.ul>
     </LayoutGroup>
   );
