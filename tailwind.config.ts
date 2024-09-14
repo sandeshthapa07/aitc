@@ -11,13 +11,7 @@ const config: Config = {
     './components/**/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  options: {
-    safelist: [
-      {
-        pattern: /row-start-\d+/,
-      },
-    ],
-  },
+
   theme: {
     extend: {
       fontFamily: {
@@ -46,6 +40,7 @@ const config: Config = {
       },
       screens: {
         xmd: '744px',
+        '2xl': '1440px',
         '3xl': '1920px',
       },
     },
